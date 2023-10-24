@@ -7,20 +7,14 @@ const CartProvider = (props) => {
   const addItemToCartHandler = (item) => {
     updateItems([...items, item]);
   };
+  import React from "react";
 
-  const removeItemFromCartHandler = (id) => {};
-
-  const cartContext = {
-    items: items,
-    addItem: addItemToCartHandler,
-    removeItem: removeItemFromCartHandler,
-  };
-
-  return (
-    <CartContext.Provider value={cartContext}>
-      {props.children}
-    </CartContext.Provider>
-  );
-};
-
-export default CartProvider;
+  // Create and export your CartContext
+  const CartContext = React.createContext({
+    items: [],
+    totalAmount: 0,
+    addItem: (item) => {},
+    removeItem: (id) => {}
+  });
+  
+  export default CartContext;
