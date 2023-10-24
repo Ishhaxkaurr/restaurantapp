@@ -1,20 +1,11 @@
-import { useState } from "react";
-import CartContext from "./cart-context";
+import React from "react";
 
-const CartProvider = (props) => {
-  const [items, updateItems] = useState([]);
+// Create and export your CartContext
+const CartContext = React.createContext({
+  items: [],
+  totalAmount: 0,
+  addItem: (item) => {},
+  removeItem: (id) => {},
+});
 
-  const addItemToCartHandler = (item) => {
-    updateItems([...items, item]);
-  };
-  import React from "react";
-
-  // Create and export your CartContext
-  const CartContext = React.createContext({
-    items: [],
-    totalAmount: 0,
-    addItem: (item) => {},
-    removeItem: (id) => {}
-  });
-  
-  export default CartContext;
+export default CartContext;
